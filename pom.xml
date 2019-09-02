@@ -1,12 +1,10 @@
-<?xml version="1.0"?>
-<project
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.apicurio</groupId>
     <artifactId>apicurio-registry</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0.temporary-redhat-00001</version>
     <packaging>pom</packaging>
     <name>apicurio-registry</name>
 
@@ -88,7 +86,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <!-- Quarkus Version -->
-        <quarkus.version>0.21.1</quarkus.version>
+        <quarkus.version>0.21.1.temporary-redhat-00006</quarkus.version>
 
         <!-- Jandex -->
         <jandex.version>1.0.6</jandex.version>
@@ -129,12 +127,12 @@
             <dependency>
                 <groupId>io.apicurio</groupId>
                 <artifactId>apicurio-registry-app</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0.temporary-redhat-00001</version>
             </dependency>
             <dependency>
                 <groupId>io.apicurio</groupId>
                 <artifactId>apicurio-registry-app</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0.temporary-redhat-00001</version>
                 <type>test-jar</type>
             </dependency>
 
@@ -315,16 +313,22 @@
                     </additionalDependencies>
                 </configuration>
             </plugin>
+            <plugin>
+        <groupId>org.commonjava.maven.plugins</groupId>
+        <artifactId>project-sources-maven-plugin</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <id>project-sources-archive</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>archive</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>confluent</id>
-            <name>Confluent</name>
-            <url>https://packages.confluent.io/maven/</url>
-        </repository>
-    </repositories>
 
     <distributionManagement>
         <snapshotRepository>
@@ -393,3 +397,7 @@
         </profile>
     </profiles>
 </project>
+<!--
+Modified by POM Manipulation Extension for Maven 3.8 ( SHA: f4d25314 ) 
+-->
+
