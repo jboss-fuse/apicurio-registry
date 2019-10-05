@@ -1,13 +1,10 @@
-<?xml version="1.0"?>
-<project
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.apicurio</groupId>
         <artifactId>apicurio-registry</artifactId>
-        <version>1.0.0.fuse-750002</version>
+        <version>1.0.0.fuse-750002-temporary-redhat-00002</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
@@ -81,9 +78,7 @@
                             <!--<goal>test-compile</goal>-->
                         </goals>
                         <configuration>
-                            <protocArtifact>
-                                com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}
-                            </protocArtifact>
+                            <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
                         </configuration>
                     </execution>
                 </executions>
@@ -112,9 +107,7 @@
                         <configuration>
                             <includeGroupIds>io.apicurio</includeGroupIds>
                             <includeTypes>jar</includeTypes>
-                            <outputDirectory>
-                                ${project.build.directory}/classes
-                            </outputDirectory>
+                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
@@ -129,9 +122,7 @@
                             <includeGroupIds>io.apicurio</includeGroupIds>
                             <includeTypes>test-jar</includeTypes>
                             <includeScope>test</includeScope>
-                            <outputDirectory>
-                                ${project.build.directory}/test-classes
-                            </outputDirectory>
+                            <outputDirectory>${project.build.directory}/test-classes</outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
@@ -143,9 +134,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <systemProperties>
-                        <java.util.logging.manager>
-                            org.jboss.logmanager.LogManager
-                        </java.util.logging.manager>
+                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                     </systemProperties>
                 </configuration>
             </plugin>
@@ -195,8 +184,7 @@
                                     <goal>native-image</goal>
                                 </goals>
                                 <configuration>
-                                    <enableHttpUrlHandler>true
-                                    </enableHttpUrlHandler>
+                                    <enableHttpUrlHandler>true</enableHttpUrlHandler>
                                 </configuration>
                             </execution>
                         </executions>
@@ -212,9 +200,7 @@
                                 </goals>
                                 <configuration>
                                     <systemProperties>
-                                        <native.image.path>
-                                            ${project.build.directory}/${project.build.finalName}-runner
-                                        </native.image.path>
+                                        <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
                                     </systemProperties>
                                 </configuration>
                             </execution>
